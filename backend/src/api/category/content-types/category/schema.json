@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": { "singularName": "category", "pluralName": "categories", "displayName": "Category", "description": "Event categories like Music, Sports, Technology" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true, "unique": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "description": { "type": "text" },
+    "icon": { "type": "string", "description": "Icon name for map markers" },
+    "color": { "type": "string", "description": "Hex color for map marker, e.g. #e11d48" },
+    "events": { "type": "relation", "relation": "oneToMany", "target": "api::event.event", "mappedBy": "category" }
+  }
+}
